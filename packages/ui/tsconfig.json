@@ -1,0 +1,9 @@
+{
+  "extends": "@sdb/typescript-config/react-native.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "types": ["react-native", "node"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "**/__tests__/**"]
+}

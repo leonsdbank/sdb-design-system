@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "SDB Expo Playground",
+    "slug": "expo-playground",
+    "version": "1.0.0",
+    "scheme": "sdb-playground",
+    "platforms": ["ios", "android", "web"],
+    "web": {
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": ["expo-router"]
+  }
+}

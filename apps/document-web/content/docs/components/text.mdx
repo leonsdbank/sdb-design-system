@@ -1,0 +1,48 @@
+---
+title: Text
+description: A typography component with variant and size support.
+---
+
+## Preview
+
+<TextPreview />
+
+## Usage
+
+```tsx
+import { Text } from '@sdb/ui';
+
+export default function Example() {
+  return <Text>Hello World</Text>;
+}
+```
+
+## Variants
+
+```tsx
+<Text variant="heading">Heading</Text>
+<Text variant="subheading">Subheading</Text>
+<Text variant="default">Default</Text>
+<Text variant="muted">Muted</Text>
+<Text variant="destructive">Destructive</Text>
+```
+
+## Sizes
+
+```tsx
+<Text size="xs">Extra Small</Text>
+<Text size="sm">Small</Text>
+<Text size="base">Base</Text>
+<Text size="lg">Large</Text>
+<Text size="xl">Extra Large</Text>
+<Text size="2xl">2XL</Text>
+<Text size="3xl">3XL</Text>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `variant` | `'default' \| 'heading' \| 'subheading' \| 'muted' \| 'destructive'` | `'default'` | Visual style variant |
+| `size` | `'xs' \| 'sm' \| 'base' \| 'lg' \| 'xl' \| '2xl' \| '3xl'` | `'base'` | Font size |
+| `className` | `string` | - | Additional Tailwind classes |

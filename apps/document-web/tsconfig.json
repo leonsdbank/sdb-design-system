@@ -1,0 +1,19 @@
+{
+  "extends": "@sdb/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"],
+      "fumadocs-mdx:collections/*": ["./.source/*"],
+      "react-native": ["../../packages/ui/node_modules/react-native"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".source/**/*.ts",
+    "../../packages/ui/src/types/**/*.d.ts"
+  ],
+  "exclude": ["node_modules"]
+}

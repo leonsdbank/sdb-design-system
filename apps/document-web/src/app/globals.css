@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+@import "@sdb/ui/global.css";
+@import 'tailwindcss';
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
+
+@source "../../../../packages/ui/src";
+
+@theme {
+  --color-fd-primary: #0693e3;
+  --color-fd-primary-foreground: #ffffff;
+  --color-fd-ring: #0693e3;
+  --color-fd-accent: rgba(6, 147, 227, 0.08);
+  --color-fd-accent-foreground: #0f172a;
+  --color-fd-background: #ffffff;
+  --color-fd-foreground: #0f172a;
+  --color-fd-card: #ffffff;
+  --color-fd-card-foreground: #0f172a;
+  --color-fd-muted: #f8fafc;
+  --color-fd-muted-foreground: #64748b;
+  --color-fd-border: #e2e8f0;
+  --color-fd-popover: #ffffff;
+  --color-fd-popover-foreground: #0f172a;
+  --color-fd-secondary: #f1f5f9;
+  --color-fd-secondary-foreground: #0f172a;
+
+  --fd-layout-width: 1400px;
+}
+
+/* Outfit display font for prose headings */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  font-family: 'Outfit', sans-serif;
+}

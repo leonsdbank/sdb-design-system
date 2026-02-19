@@ -1,0 +1,187 @@
+---
+title: Expo
+description: Install and configure @sdb/ui in an Expo project with Uniwind.
+---
+
+## Prerequisites
+
+- Expo SDK 54+
+- React Native 0.81+
+- React 19+
+
+## Create a New Expo Project
+
+```bash
+bunx create-expo-app@latest my-app --template blank-typescript
+cd my-app
+```
+
+## Install Dependencies
+
+```bash
+bun add @sdb/ui uniwind tailwindcss react-native-web@^0.21.0 react-dom@19.1.0 expo-router expo-constants expo-linking react-native-safe-area-context react-native-screens expo-status-bar
+```
+
+```bash
+bun add -d babel-preset-expo @types/react
+```
+
+> **Important:** Pin `react-dom` to exact `19.1.0` — using `^19.1.0` can resolve to 19.2.x which causes version mismatches with React 19.1.0.
+
+## Configure app.json
+
+Set up expo-router and web bundling:
+
+```json title="app.json"
+{
+  "expo": {
+    "name": "My App",
+    "slug": "my-app",
+    "version": "1.0.0",
+    "scheme": "my-app",
+    "platforms": ["ios", "android", "web"],
+    "web": {
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": ["expo-router"]
+  }
+}
+```
+
+## Configure package.json
+
+Set the entry point to expo-router:
+
+```json title="package.json"
+{
+  "main": "expo-router/entry"
+}
+```
+
+## Configure Babel
+
+```js title="babel.config.js"
+module.exports = function (api) {
+  api.cache(true);
+  return {
+    presets: ["babel-preset-expo"],
+  };
+};
+```
+
+## Configure CSS
+
+Create a `global.css` file. The `@layer rnw;` declaration **must** come before Tailwind to fix CSS specificity on web.
+
+```css title="global.css"
+@layer rnw;
+@import "tailwindcss";
+```
+
+## Configure Metro
+
+Wrap Expo's default Metro config with Uniwind. The `cssEntryFile` must be a relative path.
+
+```js title="metro.config.js"
+const { getDefaultConfig } = require("expo/metro-config");
+const { withUniwindConfig } = require("uniwind/metro");
+
+const config = getDefaultConfig(__dirname);
+
+// Uniwind must be the outermost wrapper; cssEntryFile must be relative
+module.exports = withUniwindConfig(config, { cssEntryFile: "./global.css" });
+```
+
+## Configure TypeScript
+
+Add the `@sdb/ui` type augmentation so `className` is recognized on React Native components:
+
+```json title="tsconfig.json"
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "paths": {
+      "~/*": ["./*"]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "node_modules/@sdb/ui/src/types/**/*.d.ts"
+  ]
+}
+```
+
+## Import Global CSS
+
+This step is **critical** — without it, Uniwind's Tailwind CSS compilation is never injected and components render with zero styling.
+
+```tsx title="app/_layout.tsx"
+import "../global.css";
+import { Stack } from "expo-router";
+
+export default function RootLayout() {
+  return <Stack />;
+}
+```
+
+## Usage
+
+```tsx title="app/index.tsx"
+import { ScrollView, View } from "react-native";
+import { Button, Text, Card, CardHeader, CardTitle, CardContent } from "@sdb/ui";
+
+export default function HomeScreen() {
+  return (
+    <ScrollView className="flex-1 bg-gray-50">
+      <View className="px-4 py-6">
+        <Text variant="heading" size="2xl" className="mb-4">
+          Hello from @sdb/ui
+        </Text>
+        <Card>
+          <CardHeader>
+            <CardTitle>My Card</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <Text className="text-gray-600 mb-4">
+              Cross-platform components with Tailwind styling
+            </Text>
+            <Button>Press me</Button>
+          </CardContent>
+        </Card>
+      </View>
+    </ScrollView>
+  );
+}
+```
+
+## Run
+
+```bash
+# Web
+expo start --web
+
+# iOS / Android
+expo start
+```
+
+## Verify Setup
+
+Run expo-doctor to check for version mismatches:
+
+```bash
+bunx expo-doctor
+```
+
+Key version requirements for SDK 54:
+
+| Package | Required Version |
+|---|---|
+| `expo-router` | `~6.0.23` |
+| `react-native-web` | `^0.21.0` |
+| `react-dom` | `19.1.0` (pinned) |
+| `react-native-safe-area-context` | `~5.6.0` |
+| `react-native-screens` | `~4.16.0` |
+| `expo-constants` | `~18.0.0` |
+| `expo-linking` | `~8.0.11` |

@@ -1,0 +1,18 @@
+{
+  "extends": "@sdb/typescript-config/expo.json",
+  "compilerOptions": {
+    "paths": {
+      "~/*": [
+        "./*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "../../packages/ui/src/types/**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

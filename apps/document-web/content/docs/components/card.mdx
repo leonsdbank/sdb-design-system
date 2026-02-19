@@ -1,0 +1,53 @@
+---
+title: Card
+description: A composable card system with header, title, description, content, and footer.
+---
+
+## Preview
+
+<CardPreview />
+
+## Usage
+
+```tsx
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from '@sdb/ui';
+
+export default function Example() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Card Title</CardTitle>
+        <CardDescription>Card Description</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <Text>Card content goes here.</Text>
+      </CardContent>
+      <CardFooter>
+        <Button>Action</Button>
+      </CardFooter>
+    </Card>
+  );
+}
+```
+
+## Components
+
+The Card system is composed of several parts:
+
+| Component | Description |
+| --- | --- |
+| `Card` | Root container with border, background, padding, and shadow |
+| `CardHeader` | Header section with bottom margin |
+| `CardTitle` | Bold heading text |
+| `CardDescription` | Muted description text |
+| `CardContent` | Main content area with vertical padding |
+| `CardFooter` | Footer section with top margin, row layout |
+
+Each component accepts a `className` prop for custom styling.

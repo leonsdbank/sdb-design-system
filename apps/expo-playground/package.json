@@ -1,0 +1,37 @@
+{
+  "name": "@sdb/expo-playground",
+  "version": "0.0.0",
+  "private": true,
+  "main": "expo-router/entry",
+  "scripts": {
+    "dev": "expo start --web",
+    "dev:native": "expo start",
+    "build": "echo 'No build step for Expo app'",
+    "lint": "eslint . --max-warnings 0",
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@sdb/ui": "*",
+    "expo": "~54.0.33",
+    "expo-constants": "~18.0.0",
+    "expo-linking": "~8.0.11",
+    "expo-router": "~6.0.23",
+    "expo-status-bar": "~3.0.9",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-native": "0.81.5",
+    "react-native-safe-area-context": "~5.6.0",
+    "react-native-screens": "~4.16.0",
+    "react-native-web": "^0.21.0",
+    "uniwind": "^1.3.2",
+    "tailwindcss": "^4.1.0"
+  },
+  "devDependencies": {
+    "@sdb/eslint-config": "*",
+    "@sdb/typescript-config": "*",
+    "@types/react": "~19.1.0",
+    "babel-preset-expo": "^54.0.10",
+    "eslint": "^9.39.1",
+    "typescript": "~5.9.2"
+  }
+}

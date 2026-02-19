@@ -1,0 +1,51 @@
+---
+title: Input
+description: A text input component with label and error state support.
+---
+
+## Preview
+
+<InputPreview />
+
+## Usage
+
+```tsx
+import { Input } from '@sdb/ui';
+
+export default function Example() {
+  return <Input placeholder="Enter text..." />;
+}
+```
+
+## With Label
+
+```tsx
+<Input label="Email" placeholder="you@example.com" />
+```
+
+## With Error
+
+```tsx
+<Input
+  label="Password"
+  placeholder="Enter password"
+  error="Password is required"
+/>
+```
+
+## Disabled
+
+```tsx
+<Input label="Disabled" placeholder="Cannot edit" editable={false} />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional Tailwind classes |
+| `label` | `string` | - | Label text above the input |
+| `labelClassName` | `string` | - | Tailwind classes for the label |
+| `error` | `string` | - | Error message below the input |
+| `placeholder` | `string` | - | Placeholder text |
+| `editable` | `boolean` | `true` | Whether the input is editable |
