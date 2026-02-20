@@ -60,7 +60,7 @@ const EXCLUDE_PATTERNS = [
 // ─── Main ────────────────────────────────────────────────────────────────────
 
 async function main() {
-  p.intro(`${color.bgCyan(color.black(" @sdb "))} ${color.dim("project zipper")}`);
+  p.intro(`${color.bgCyan(color.black(" @sdbank"))} ${color.dim("project zipper")}`);
 
   // Validate that included paths exist
   const missing: string[] = [];

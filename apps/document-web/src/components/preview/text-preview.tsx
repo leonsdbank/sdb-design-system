@@ -1,6 +1,6 @@
 "use client";
 
-import { Text } from "@sdb/ui";
+import { Text } from "@sdbank/ui";
 import { View } from "react-native";
 
 export function TextPreview() {

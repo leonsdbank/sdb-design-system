@@ -10,7 +10,7 @@ import {
   CardContent,
   CardFooter,
   Input,
-} from "@sdb/ui";
+} from "@sdbank/ui";
 
 function Section({
   title,

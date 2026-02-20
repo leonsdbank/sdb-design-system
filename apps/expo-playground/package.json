@@ -1,5 +1,5 @@
 {
-  "name": "@sdb/expo-playground",
+  "name": "@sdbank/expo-playground",
   "version": "0.0.0",
   "private": true,
   "main": "expo-router/entry",
@@ -11,7 +11,7 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@sdb/ui": "*",
+    "@sdbank/ui": "*",
     "expo": "~54.0.33",
     "expo-constants": "~18.0.0",
     "expo-linking": "~8.0.11",
@@ -27,8 +27,8 @@
     "tailwindcss": "^4.1.0"
   },
   "devDependencies": {
-    "@sdb/eslint-config": "*",
-    "@sdb/typescript-config": "*",
+    "@sdbank/eslint-config": "*",
+    "@sdbank/typescript-config": "*",
     "@types/react": "~19.1.0",
     "babel-preset-expo": "^54.0.10",
     "eslint": "^9.39.1",

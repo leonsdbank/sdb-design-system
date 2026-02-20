@@ -1,3 +1,3 @@
-import { nextJsConfig } from "@sdb/eslint-config/next-js";
+import { nextJsConfig } from "@sdbank/eslint-config/next-js";
 
 export default nextJsConfig;

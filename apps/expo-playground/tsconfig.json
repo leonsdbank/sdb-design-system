@@ -1,5 +1,5 @@
 {
-  "extends": "@sdb/typescript-config/expo.json",
+  "extends": "@sdbank/typescript-config/expo.json",
   "compilerOptions": {
     "paths": {
       "~/*": [

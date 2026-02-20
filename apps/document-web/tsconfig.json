@@ -1,5 +1,5 @@
 {
-  "extends": "@sdb/typescript-config/nextjs.json",
+  "extends": "@sdbank/typescript-config/nextjs.json",
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"],

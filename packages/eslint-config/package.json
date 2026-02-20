@@ -1,5 +1,5 @@
 {
-  "name": "@sdb/eslint-config",
+  "name": "@sdbank/eslint-config",
   "version": "0.0.0",
   "type": "module",
   "private": true,

@@ -10,7 +10,7 @@ import {
   CardContent,
   CardFooter,
   Input,
-} from "@sdb/ui";
+} from "@sdbank/ui";
 import { useState } from "react";
 
 function Section({

@@ -1,6 +1,6 @@
 "use client";
 
-import { Input } from "@sdb/ui";
+import { Input } from "@sdbank/ui";
 import { View } from "react-native";
 
 export function InputPreview() {

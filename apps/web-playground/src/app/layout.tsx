@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "@sdb/ui — Web Playground",
-  description: "Next.js playground for @sdb/ui design system components",
+  title: "@sdbank/ui — Web Playground",
+  description: "Next.js playground for @sdbank/ui design system components",
 };
 
 export default function RootLayout({

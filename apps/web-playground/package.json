@@ -1,5 +1,5 @@
 {
-  "name": "@sdb/web-playground",
+  "name": "@sdbank/web-playground",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -11,15 +11,15 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@sdb/ui": "*",
+    "@sdbank/ui": "*",
     "next": "^16.0.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-native-web": "^0.21.0"
   },
   "devDependencies": {
-    "@sdb/eslint-config": "*",
-    "@sdb/typescript-config": "*",
+    "@sdbank/eslint-config": "*",
+    "@sdbank/typescript-config": "*",
     "@tailwindcss/postcss": "^4.1.0",
     "@types/node": "^25.3.0",
     "@types/react": "^19.1.0",

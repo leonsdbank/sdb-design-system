@@ -49,12 +49,12 @@ export interface SdbUIOptions {
 }
 
 /**
- * Wraps a Next.js config with everything needed to render `@sdb/ui` components
+ * Wraps a Next.js config with everything needed to render `@sdbank/ui` components
  * via react-native-web with correct Tailwind CSS class support.
  *
  * ```ts
  * // next.config.ts
- * import { withSdbUI } from "@sdb/ui/next";
+ * import { withSdbUI } from "@sdbank/ui/next";
  * export default withSdbUI({ /* your NextConfig *\/ });
  * ```
  */
@@ -72,7 +72,7 @@ export function withSdbUI(
   // --- transpilePackages ---------------------------------------------------
   const transpilePackages = Array.from(
     new Set([
-      "@sdb/ui",
+      "@sdbank/ui",
       "react-native-web",
       ...(nextConfig.transpilePackages ?? []),
       ...extraTranspilePackages,

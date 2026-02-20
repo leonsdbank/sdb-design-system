@@ -1,6 +1,6 @@
 ---
 title: Expo
-description: Install and configure @sdb/ui in an Expo project with Uniwind.
+description: Install and configure @sdbank/ui in an Expo project with Uniwind.
 ---
 
 ## Prerequisites
@@ -19,7 +19,7 @@ cd my-app
 ## Install Dependencies
 
 ```bash
-bun add @sdb/ui uniwind tailwindcss react-native-web@^0.21.0 react-dom@19.1.0 expo-router expo-constants expo-linking react-native-safe-area-context react-native-screens expo-status-bar
+bun add @sdbank/ui uniwind tailwindcss react-native-web@^0.21.0 react-dom@19.1.0 expo-router expo-constants expo-linking react-native-safe-area-context react-native-screens expo-status-bar
 ```
 
 ```bash
@@ -95,7 +95,7 @@ module.exports = withUniwindConfig(config, { cssEntryFile: "./global.css" });
 
 ## Configure TypeScript
 
-Add the `@sdb/ui` type augmentation so `className` is recognized on React Native components:
+Add the `@sdbank/ui` type augmentation so `className` is recognized on React Native components:
 
 ```json title="tsconfig.json"
 {
@@ -108,7 +108,7 @@ Add the `@sdb/ui` type augmentation so `className` is recognized on React Native
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    "node_modules/@sdb/ui/src/types/**/*.d.ts"
+    "node_modules/@sdbank/ui/src/types/**/*.d.ts"
   ]
 }
 ```
@@ -130,14 +130,14 @@ export default function RootLayout() {
 
 ```tsx title="app/index.tsx"
 import { ScrollView, View } from "react-native";
-import { Button, Text, Card, CardHeader, CardTitle, CardContent } from "@sdb/ui";
+import { Button, Text, Card, CardHeader, CardTitle, CardContent } from "@sdbank/ui";
 
 export default function HomeScreen() {
   return (
     <ScrollView className="flex-1 bg-gray-50">
       <View className="px-4 py-6">
         <Text variant="heading" size="2xl" className="mb-4">
-          Hello from @sdb/ui
+          Hello from @sdbank/ui
         </Text>
         <Card>
           <CardHeader>

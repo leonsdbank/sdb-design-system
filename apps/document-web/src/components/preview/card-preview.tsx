@@ -9,7 +9,7 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from "@sdb/ui";
+} from "@sdbank/ui";
 import { View } from "react-native";
 
 export function CardPreview() {
@@ -34,7 +34,7 @@ export function CardPreview() {
           <CardDescription>Cards accept a className prop for custom styling.</CardDescription>
         </CardHeader>
         <CardContent>
-          <Text variant="muted">Compose with any @sdb/ui components inside.</Text>
+          <Text variant="muted">Compose with any @sdbank/ui components inside.</Text>
         </CardContent>
       </Card>
     </View>

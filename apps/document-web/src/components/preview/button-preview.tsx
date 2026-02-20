@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@sdb/ui";
+import { Button } from "@sdbank/ui";
 import { View } from "react-native";
 
 export function ButtonPreview() {

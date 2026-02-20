@@ -10,7 +10,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: '@sdb/ui — Cross-Platform React Native Components',
+  title: '@sdbank/ui — Cross-Platform React Native Components',
   description:
     'A React Native component library powered by Uniwind. Write once with Tailwind CSS, deploy to iOS, Android, and Web.',
 };

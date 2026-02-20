@@ -409,7 +409,7 @@ export default function HomePage() {
               animation: "gradientShift 4s ease-in-out infinite",
             }}
           >
-            @sdb/ui
+            @sdbank/ui
           </span>
         </h1>
 
@@ -515,7 +515,7 @@ export default function HomePage() {
             className="mb-3 text-center text-3xl font-bold text-slate-900 md:text-4xl"
             style={{ fontFamily: "'Outfit', var(--font-display, sans-serif)" }}
           >
-            Why @sdb/ui?
+            Why @sdbank/ui?
           </h2>
           <p className="mb-14 text-center text-sm text-slate-400">
             Everything you need for cross-platform development
@@ -629,7 +629,7 @@ export default function HomePage() {
                 <span className="text-amber-200">Text</span>
                 {" } "}
                 <span className="text-violet-400">from</span>{" "}
-                <span className="text-emerald-300">{'"@sdb/ui"'}</span>
+                <span className="text-emerald-300">{'"@sdbank/ui"'}</span>
                 <span className="text-white/20">;</span>
               </CL>
               <CL />
@@ -660,7 +660,7 @@ export default function HomePage() {
                 <span className="text-cyan-400">{">"}</span>
               </CL>
               <CL indent={4}>
-                <span className="text-white/60">Hello from @sdb/ui</span>
+                <span className="text-white/60">Hello from @sdbank/ui</span>
               </CL>
               <CL indent={3}>
                 <span className="text-cyan-400">{"</Text>"}</span>
@@ -742,7 +742,7 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="rounded-lg bg-slate-50 px-4 py-3 font-mono text-xs text-slate-500 transition-colors duration-300 group-hover:bg-slate-100/80">
-                <span className="text-[#0693e3]">$</span> bun add @sdb/ui
+                <span className="text-[#0693e3]">$</span> bun add @sdbank/ui
                 react-native-web
               </div>
               <p className="mt-4 flex items-center gap-1 text-xs text-[#0693e3]/60 transition-colors group-hover:text-[#0693e3]">
@@ -791,7 +791,7 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="rounded-lg bg-slate-50 px-4 py-3 font-mono text-xs text-slate-500 transition-colors duration-300 group-hover:bg-slate-100/80">
-                <span className="text-[#0693e3]">$</span> bun add @sdb/ui
+                <span className="text-[#0693e3]">$</span> bun add @sdbank/ui
                 uniwind tailwindcss
               </div>
               <p className="mt-4 flex items-center gap-1 text-xs text-[#0693e3]/60 transition-colors group-hover:text-[#0693e3]">
@@ -836,7 +836,7 @@ export default function HomePage() {
             Ready to build?
           </h2>
           <p className="mt-3 text-sm text-slate-400">
-            Start building cross-platform apps with @sdb/ui today.
+            Start building cross-platform apps with @sdbank/ui today.
           </p>
           <Link
             href="/docs"

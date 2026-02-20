@@ -1,5 +1,5 @@
 {
-  "extends": "@sdb/typescript-config/react-native.json",
+  "extends": "@sdbank/typescript-config/react-native.json",
   "compilerOptions": {
     "outDir": "./dist",
     "types": ["react-native", "node"]

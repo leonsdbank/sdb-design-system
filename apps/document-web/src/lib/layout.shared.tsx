@@ -13,7 +13,7 @@ export function baseOptions(): BaseLayoutProps {
             height={32}
             className="dark:invert-0"
           />
-          <span className="font-semibold">@sdb/ui</span>
+          <span className="font-semibold">@sdbank/ui</span>
         </span>
       ),
     },

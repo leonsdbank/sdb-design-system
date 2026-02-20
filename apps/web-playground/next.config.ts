@@ -1,3 +1,3 @@
-import { withSdbUI } from "@sdb/ui/next";
+import { withSdbUI } from "@sdbank/ui/next";
 
 export default withSdbUI();

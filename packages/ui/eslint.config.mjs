@@ -1,3 +1,3 @@
-import { config } from "@sdb/eslint-config/react-internal";
+import { config } from "@sdbank/eslint-config/react-internal";
 
 export default config;

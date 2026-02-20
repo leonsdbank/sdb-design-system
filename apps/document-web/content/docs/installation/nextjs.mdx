@@ -1,6 +1,6 @@
 ---
 title: Next.js
-description: Install and configure @sdb/ui in a Next.js project.
+description: Install and configure @sdbank/ui in a Next.js project.
 ---
 
 ## Prerequisites
@@ -12,7 +12,7 @@ description: Install and configure @sdb/ui in a Next.js project.
 ## Install Dependencies
 
 ```bash
-bun add @sdb/ui react-native-web@^0.21.0
+bun add @sdbank/ui react-native-web@^0.21.0
 ```
 
 ```bash
@@ -24,7 +24,7 @@ bun add -d tailwindcss @tailwindcss/postcss
 Wrap your Next.js config with `withSdbUI()`. This configures Turbopack aliases, CSS layer ordering, and `transpilePackages` automatically.
 
 ```ts title="next.config.ts"
-import { withSdbUI } from "@sdb/ui/next";
+import { withSdbUI } from "@sdbank/ui/next";
 
 export default withSdbUI({
   // your Next.js config here
@@ -34,7 +34,7 @@ export default withSdbUI({
 You can pass options as a second argument:
 
 ```ts title="next.config.ts"
-import { withSdbUI } from "@sdb/ui/next";
+import { withSdbUI } from "@sdbank/ui/next";
 
 export default withSdbUI(
   {
@@ -60,16 +60,16 @@ export default config;
 
 ## Configure CSS
 
-Import the `@sdb/ui` global CSS **before** Tailwind. This sets up the `@layer rnw` ordering so Tailwind utilities correctly override react-native-web base styles.
+Import the `@sdbank/ui` global CSS **before** Tailwind. This sets up the `@layer rnw` ordering so Tailwind utilities correctly override react-native-web base styles.
 
 ```css title="globals.css"
-@import "@sdb/ui/global.css";
+@import "@sdbank/ui/global.css";
 @import "tailwindcss";
 ```
 
 ## Configure TypeScript
 
-Add the `@sdb/ui` type augmentation to your `tsconfig.json` so the `className` prop is recognized on React Native components:
+Add the `@sdbank/ui` type augmentation to your `tsconfig.json` so the `className` prop is recognized on React Native components:
 
 ```json title="tsconfig.json"
 {
@@ -83,7 +83,7 @@ Add the `@sdb/ui` type augmentation to your `tsconfig.json` so the `className` p
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "node_modules/@sdb/ui/src/types/**/*.d.ts"
+    "node_modules/@sdbank/ui/src/types/**/*.d.ts"
   ]
 }
 ```
@@ -91,7 +91,7 @@ Add the `@sdb/ui` type augmentation to your `tsconfig.json` so the `className` p
 ## Usage
 
 ```tsx title="app/page.tsx"
-import { Button, Text, Card, CardHeader, CardTitle, CardContent } from "@sdb/ui";
+import { Button, Text, Card, CardHeader, CardTitle, CardContent } from "@sdbank/ui";
 
 export default function Page() {
   return (
@@ -101,7 +101,7 @@ export default function Page() {
       </CardHeader>
       <CardContent>
         <Text className="text-gray-600 mb-4">
-          @sdb/ui components in Next.js
+          @sdbank/ui components in Next.js
         </Text>
         <Button>Click me</Button>
       </CardContent>
@@ -117,4 +117,4 @@ export default function Page() {
 1. **Turbopack alias** — Maps `react-native` imports to a shim that bridges `className` to react-native-web's `style` prop using the `$$css` pattern.
 2. **CSS layer ordering** — A loader patches react-native-web's stylesheet to use `@layer rnw`, preventing base styles from overriding Tailwind utilities.
 3. **Webpack fallback** — Prepends `.web.*` extensions and aliases `react-native` for `next dev --webpack` compatibility.
-4. **transpilePackages** — Adds `@sdb/ui` and `react-native-web` so Next.js processes them correctly.
+4. **transpilePackages** — Adds `@sdbank/ui` and `react-native-web` so Next.js processes them correctly.

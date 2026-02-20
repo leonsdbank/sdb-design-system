@@ -1,6 +1,6 @@
 #!/usr/bin/env bun
 /**
- * Interactive publish script for @sdb/ui
+ * Interactive publish script for @sdbank/ui
  * Usage: bun publish:ui
  *
  * Full pipeline:
@@ -47,7 +47,7 @@ function isValidSemver(v: string): boolean {
 /** Returns the version string if that exact version exists on npm, null otherwise. */
 function checkNpmVersion(version: string): string | null {
   try {
-    const out = execSync(`npm view @sdb/ui@${version} version 2>/dev/null`, {
+    const out = execSync(`npm view @sdbank/ui@${version} version 2>/dev/null`, {
       encoding: "utf-8",
       stdio: ["pipe", "pipe", "pipe"],
     }).trim();
@@ -60,7 +60,7 @@ function checkNpmVersion(version: string): string | null {
 /** Returns the latest published version on npm, or null if not yet published. */
 function getLatestNpmVersion(): string | null {
   try {
-    const out = execSync(`npm view @sdb/ui version 2>/dev/null`, {
+    const out = execSync(`npm view @sdbank/ui version 2>/dev/null`, {
       encoding: "utf-8",
       stdio: ["pipe", "pipe", "pipe"],
     }).trim();
@@ -100,7 +100,7 @@ function handleCancel(value: unknown) {
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 async function main() {
-  p.intro(`${color.bgCyan(color.black(" @sdb/ui "))} ${color.dim("publish wizard")}`);
+  p.intro(`${color.bgCyan(color.black(" @sdbank/ui "))} ${color.dim("publish wizard")}`);
 
   // ── 1. Check clean working tree ────────────────────────────────────────
   if (!isGitClean()) {
@@ -126,7 +126,7 @@ async function main() {
 
   p.note(
     [
-      `${color.dim("Package")}    ${color.cyan("@sdb/ui")}`,
+      `${color.dim("Package")}    ${color.cyan("@sdbank/ui")}`,
       `${color.dim("Local")}      ${color.yellow(current)}`,
       `${color.dim("npm")}        ${npmLatest ? color.green(npmLatest) : color.dim("—")}`,
     ].join("\n"),
@@ -152,7 +152,7 @@ async function main() {
   // ── 4. Confirmation ────────────────────────────────────────────────────
   p.note(
     [
-      `${color.dim("Package")}    ${color.cyan("@sdb/ui")}`,
+      `${color.dim("Package")}    ${color.cyan("@sdbank/ui")}`,
       `${color.dim("Version")}    ${color.yellow(current)} ${color.dim("→")} ${color.green(newVersion)}`,
       `${color.dim("Tag")}        ${color.green(tagName)}`,
       `${color.dim("Steps")}      test → types → lint → build → bump → commit → publish → tag`,
@@ -206,10 +206,10 @@ async function main() {
       },
     },
     {
-      title: "Building @sdb/ui",
+      title: "Building @sdbank/ui",
       task: async () => {
         try {
-          exec("bun run build --filter=@sdb/ui");
+          exec("bun run build --filter=@sdbank/ui");
           return "Build succeeded";
         } catch {
           throw new Error("Build failed. Aborting.");
@@ -226,7 +226,7 @@ async function main() {
     {
       title: "Creating git commit",
       task: async () => {
-        const commitMsg = `chore: release @sdb/ui v${newVersion}`;
+        const commitMsg = `chore: release @sdbank/ui v${newVersion}`;
         exec("git add packages/ui/package.json");
         exec(`git commit -m "${commitMsg}"`);
         return commitMsg;
@@ -269,10 +269,10 @@ async function main() {
   // ── Done ───────────────────────────────────────────────────────────────
   p.note(
     [
-      `${color.dim("npm")}  ${color.dim("https://www.npmjs.com/package/@sdb/ui/v/")}${newVersion}`,
+      `${color.dim("npm")}  ${color.dim("https://www.npmjs.com/package/@sdbank/ui/v/")}${newVersion}`,
       `${color.dim("tag")}  ${color.green(tagName)}`,
     ].join("\n"),
-    `${color.green("✓")} @sdb/ui@${newVersion} published!`
+    `${color.green("✓")} @sdbank/ui@${newVersion} published!`
   );
 
   p.outro(color.green("All done!"));

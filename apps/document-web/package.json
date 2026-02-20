@@ -1,5 +1,5 @@
 {
-  "name": "@sdb/document-web",
+  "name": "@sdbank/document-web",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -11,7 +11,7 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@sdb/ui": "*",
+    "@sdbank/ui": "*",
     "fumadocs-core": "^16.6.3",
     "fumadocs-mdx": "^14.2.7",
     "fumadocs-ui": "^16.6.3",
@@ -22,8 +22,8 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@sdb/eslint-config": "*",
-    "@sdb/typescript-config": "*",
+    "@sdbank/eslint-config": "*",
+    "@sdbank/typescript-config": "*",
     "@tailwindcss/postcss": "^4.1.0",
     "@types/mdx": "^2.0.13",
     "@types/node": "^25.3.0",
