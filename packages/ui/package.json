@@ -19,10 +19,7 @@
     "./global.css": "./global.css"
   },
   "license": "MIT",
-  "files": [
-    "dist",
-    "LICENSE"
-  ],
+  "files": ["dist", "LICENSE"],
   "publishConfig": {
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
@@ -48,8 +45,8 @@
     }
   },
   "scripts": {
-    "build": "tsup && rm -rf dist/src && rsync -a --exclude='__tests__' src/ dist/src/ && cp -r loaders dist/loaders && cp global.css dist/global.css",
-    "dev": "tsup --watch --onSuccess 'rm -rf dist/src && rsync -a --exclude=\"__tests__\" src/ dist/src/ && cp -r loaders dist/loaders && cp global.css dist/global.css'",
+    "build": "tsup && rm -rf dist/src && cp -r src dist/src && find dist/src -type d -name '__tests__' -exec rm -rf {} + && cp -r loaders dist/loaders && cp global.css dist/global.css",
+    "dev": "tsup --watch --onSuccess 'rm -rf dist/src && cp -r src dist/src && find dist/src -type d -name __tests__ -exec rm -rf {} + && cp -r loaders dist/loaders && cp global.css dist/global.css'",
     "lint": "eslint . --max-warnings 0",
     "check-types": "tsc --noEmit",
     "test": "bunx vitest run"
