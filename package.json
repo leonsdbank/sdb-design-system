@@ -4,6 +4,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "build:document-web": "turbo run build --filter=@sdb/document-web",
     "dev:expo-playground": "turbo run dev --filter=@sdb/expo-playground",
     "dev:web-playground": "turbo run dev --filter=@sdb/web-playground",
     "dev:document-web": "turbo run dev --filter=@sdb/document-web",
