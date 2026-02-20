@@ -16,26 +16,33 @@ interface AliasConfig {
   replacement: string;
 }
 
+interface EsbuildBuild {
+  onLoad: (
+    options: { filter: RegExp },
+    callback: () => { contents: string; loader: string }
+  ) => void;
+}
+
 interface EsbuildPlugin {
   name: string;
-  setup: (build: any) => void;
+  setup: (build: EsbuildBuild) => void;
 }
 
 export interface ViteConfig {
-  plugins?: any[];
+  plugins?: unknown[];
   resolve?: {
     alias?: Record<string, string> | AliasConfig[];
     extensions?: string[];
-    [key: string]: any;
+    [key: string]: unknown;
   };
   optimizeDeps?: {
     esbuildOptions?: {
       plugins?: EsbuildPlugin[];
-      [key: string]: any;
+      [key: string]: unknown;
     };
-    [key: string]: any;
+    [key: string]: unknown;
   };
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 // ---------------------------------------------------------------------------
@@ -59,8 +66,7 @@ const loaderPath = path.resolve(
 // Load the RNW stylesheet replacement code
 // ---------------------------------------------------------------------------
 
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const loaderFn = _require(loaderPath);
+const loaderFn = _require(loaderPath) as () => string;
 const rnwReplacementCode: string = loaderFn();
 
 // ---------------------------------------------------------------------------

@@ -18,10 +18,13 @@
     "react-native-web": "^0.21.0"
   },
   "devDependencies": {
+    "@sdbank/eslint-config": "*",
+    "@sdbank/typescript-config": "*",
     "@tailwindcss/vite": "^4.1.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.5.2",
+    "eslint": "^9.39.1",
     "tailwindcss": "^4.1.0",
     "typescript": "^5.9.2",
     "vite": "^6.3.5"
