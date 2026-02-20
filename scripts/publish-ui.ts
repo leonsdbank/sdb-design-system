@@ -242,8 +242,9 @@ async function main() {
       title: "Publishing to npm",
       task: async () => {
         try {
-          exec("npm publish --access public", {
+          execSync("npm publish --access public", {
             cwd: join(ROOT_DIR, "packages/ui"),
+            stdio: "inherit",
           });
           return "Published successfully";
         } catch (err) {
