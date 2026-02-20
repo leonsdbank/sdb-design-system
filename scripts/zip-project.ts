@@ -15,7 +15,7 @@ import color from "picocolors";
 const ROOT_DIR = join(import.meta.dir, "..");
 const PROJECT_NAME = basename(ROOT_DIR);
 
-const INCLUDE_DIRS = ["apps", "packages", "scripts"];
+const INCLUDE_DIRS = ["apps", "packages", "scripts", "_docs"];
 const INCLUDE_FILES = [".gitignore", ".npmrc", "bun.lock", "package.json", "turbo.json"];
 
 // Patterns to exclude (node_modules, .git, and .gitignore entries)
