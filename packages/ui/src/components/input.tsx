@@ -9,9 +9,9 @@ export interface InputProps extends TextInputProps {
   error?: string;
   labelClassName?: string;
   placeholder?: string;
-  value?: any;
+  value?: string;
   editable?: boolean;
-  onChangeText?: (val: any) => void;
+  onChangeText?: (val: string) => void;
 }
 
 export const Input = forwardRef<TextInput, InputProps>(
