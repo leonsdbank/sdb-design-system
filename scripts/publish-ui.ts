@@ -246,8 +246,9 @@ async function main() {
             cwd: join(ROOT_DIR, "packages/ui"),
           });
           return "Published successfully";
-        } catch {
-          throw new Error("Publish failed.");
+        } catch (err) {
+          const msg = err instanceof Error ? err.message : String(err);
+          throw new Error(`Publish failed: ${msg}`);
         }
       },
     },
