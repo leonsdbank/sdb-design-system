@@ -182,7 +182,7 @@ async function main() {
       title: "Running tests",
       task: async () => {
         try {
-          exec("bun run test");
+          exec("bunx turbo run test --filter=@sdbank/ui");
           return "All tests passed";
         } catch {
           throw new Error("Tests failed. Fix failing tests before publishing.");
@@ -193,7 +193,7 @@ async function main() {
       title: "Checking types",
       task: async () => {
         try {
-          exec("bun run check-types");
+          exec("bunx turbo run check-types --filter=@sdbank/ui");
           return "No type errors";
         } catch {
           throw new Error("Type errors found. Fix them before publishing.");
@@ -204,7 +204,7 @@ async function main() {
       title: "Linting",
       task: async () => {
         try {
-          exec("bun run lint");
+          exec("bunx turbo run lint --filter=@sdbank/ui");
           return "No lint errors";
         } catch {
           throw new Error("Lint errors found. Fix them before publishing.");
@@ -215,7 +215,7 @@ async function main() {
       title: "Building @sdbank/ui",
       task: async () => {
         try {
-          exec("bun run build --filter=@sdbank/ui");
+          exec("bunx turbo run build --filter=@sdbank/ui");
           return "Build succeeded";
         } catch {
           throw new Error("Build failed. Aborting.");
