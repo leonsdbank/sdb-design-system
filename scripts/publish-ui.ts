@@ -184,8 +184,9 @@ async function main() {
         try {
           exec("bunx turbo run test --filter=@sdbank/ui");
           return "All tests passed";
-        } catch {
-          throw new Error("Tests failed. Fix failing tests before publishing.");
+        } catch(err) {
+          const msg = err instanceof Error ? err.message : String(err);
+          throw new Error(`Tests failed: ${msg}`);
         }
       },
     },
