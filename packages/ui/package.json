@@ -49,7 +49,7 @@
     "dev": "tsup --watch --onSuccess 'rm -rf dist/src && rsync -a --exclude=\"__tests__\" src/ dist/src/ && cp -r loaders dist/loaders && cp global.css dist/global.css'",
     "lint": "eslint . --max-warnings 0",
     "check-types": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "bunx vitest run"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
