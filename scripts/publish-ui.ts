@@ -25,6 +25,7 @@ import color from "picocolors";
 
 const ROOT_DIR = join(import.meta.dir, "..");
 const UI_PKG_PATH = join(ROOT_DIR, "packages/ui/package.json");
+const ROOT_PKG_PATH = join(ROOT_DIR, "package.json");
 
 function readPkg(): Record<string, unknown> {
   return JSON.parse(readFileSync(UI_PKG_PATH, "utf-8"));
@@ -38,6 +39,11 @@ function setVersion(version: string) {
   const pkg = readPkg();
   pkg.version = version;
   writeFileSync(UI_PKG_PATH, JSON.stringify(pkg, null, 2) + "\n");
+
+  // Keep root package.json version in sync
+  const rootPkg = JSON.parse(readFileSync(ROOT_PKG_PATH, "utf-8"));
+  rootPkg.version = version;
+  writeFileSync(ROOT_PKG_PATH, JSON.stringify(rootPkg, null, 2) + "\n");
 }
 
 function isValidSemver(v: string): boolean {
@@ -227,7 +233,7 @@ async function main() {
       title: "Creating git commit",
       task: async () => {
         const commitMsg = `chore: release @sdbank/ui v${newVersion}`;
-        exec("git add packages/ui/package.json");
+        exec("git add packages/ui/package.json package.json");
         exec(`git commit -m "${commitMsg}"`);
         return commitMsg;
       },
@@ -236,7 +242,7 @@ async function main() {
       title: "Publishing to npm",
       task: async () => {
         try {
-          exec("bun publish --access public", {
+          exec("npm publish --access public", {
             cwd: join(ROOT_DIR, "packages/ui"),
           });
           return "Published successfully";
