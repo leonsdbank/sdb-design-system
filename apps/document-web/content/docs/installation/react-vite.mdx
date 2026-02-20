@@ -3,8 +3,159 @@ title: React (Vite)
 description: Install and configure @sdbank/ui in a React + Vite project.
 ---
 
-## Coming Soon
+## Prerequisites
 
-React + Vite integration is currently under development.
+- Vite 6+
+- React 19+
+- Tailwind CSS 4
 
-Check back for updates on using `@sdbank/ui` with Vite-based React projects.
+## Install Dependencies
+
+```bash
+bun add @sdbank/ui react-native-web@^0.21.0
+```
+
+```bash
+bun add -d vite @vitejs/plugin-react tailwindcss @tailwindcss/vite @types/react @types/react-dom typescript
+```
+
+## Configure Vite
+
+Wrap your Vite config with `withSdbUI()`. This configures the `react-native` alias, `.web.*` extensions, and CSS layer patching automatically.
+
+```ts title="vite.config.ts"
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+import { withSdbUI } from "@sdbank/ui/vite";
+
+export default defineConfig(
+  withSdbUI({
+    plugins: [react(), tailwindcss()],
+  })
+);
+```
+
+You can pass options as a second argument:
+
+```ts title="vite.config.ts"
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+import { withSdbUI } from "@sdbank/ui/vite";
+
+export default defineConfig(
+  withSdbUI(
+    {
+      plugins: [react(), tailwindcss()],
+    },
+    {
+      extraAliases: { "my-alias": "/src/my-module" },
+    }
+  )
+);
+```
+
+## Configure CSS
+
+Import the `@sdbank/ui` global CSS **before** Tailwind. This sets up the `@layer rnw` ordering so Tailwind utilities correctly override react-native-web base styles.
+
+The `@source` directive tells Tailwind where to scan for class names used in `@sdbank/ui` components.
+
+```css title="src/index.css"
+@import "@sdbank/ui/global.css";
+@import "tailwindcss";
+
+@source "../../node_modules/@sdbank/ui/dist/src";
+```
+
+> **Note:** The `@source` path is relative to the CSS file. Adjust if your CSS file is in a different location.
+
+## Configure TypeScript
+
+Add the `@sdbank/ui` type augmentation so the `className` prop is recognized on React Native components:
+
+```json title="tsconfig.app.json"
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "moduleResolution": "bundler",
+    "paths": {
+      "react-native": ["./node_modules/react-native-web"]
+    }
+  },
+  "include": [
+    "src",
+    "node_modules/@sdbank/ui/dist/src/types/**/*.d.ts"
+  ]
+}
+```
+
+## Create Entry Point
+
+```html title="index.html"
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+```
+
+```tsx title="src/main.tsx"
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App";
+
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
+```
+
+## Usage
+
+```tsx title="src/App.tsx"
+import { View } from "react-native";
+import { Button, Text, Card, CardHeader, CardTitle, CardContent } from "@sdbank/ui";
+
+export default function App() {
+  return (
+    <View className="min-h-screen bg-gray-50 p-6">
+      <Card className="max-w-md mx-auto">
+        <CardHeader>
+          <CardTitle>Hello</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Text className="text-gray-600 mb-4">
+            @sdbank/ui components in React + Vite
+          </Text>
+          <Button>Click me</Button>
+        </CardContent>
+      </Card>
+    </View>
+  );
+}
+```
+
+## Run
+
+```bash
+bun run dev
+```
+
+## How It Works
+
+`withSdbUI()` handles all the wiring under the hood:
+
+1. **resolve.alias** — Maps `react-native` imports to a shim that bridges `className` to react-native-web's `style` prop using the `$$css` pattern.
+2. **resolve.extensions** — Prepends `.web.tsx`, `.web.ts`, `.web.js` so web-specific files are preferred.
+3. **esbuild pre-bundling** — Patches react-native-web's `createOrderedCSSStyleSheet` during Vite's dependency optimization to wrap base styles in `@layer rnw`, preventing them from overriding Tailwind utilities.

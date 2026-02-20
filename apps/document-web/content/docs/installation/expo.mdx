@@ -77,6 +77,8 @@ Create a `global.css` file. The `@layer rnw;` declaration **must** come before T
 ```css title="global.css"
 @layer rnw;
 @import "tailwindcss";
+
+@source "../../node_modules/@sdbank/ui/dist/src";
 ```
 
 ## Configure Metro
@@ -108,7 +110,7 @@ Add the `@sdbank/ui` type augmentation so `className` is recognized on React Nat
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    "node_modules/@sdbank/ui/src/types/**/*.d.ts"
+    "node_modules/@sdbank/ui/dist/src/types/**/*.d.ts"
   ]
 }
 ```

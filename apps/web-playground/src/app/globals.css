@@ -1,4 +1,4 @@
 @import "@sdbank/ui/global.css";
 @import "tailwindcss";
 
-@source "../../../../packages/ui/src";
+@source "../../../../packages/ui/dist/src";

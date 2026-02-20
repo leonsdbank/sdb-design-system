@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import { TextInput, View, type TextInputProps } from "react-native";
 import { cn } from "../lib/utils";
 import { Text } from "./text";

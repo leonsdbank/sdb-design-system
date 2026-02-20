@@ -1,4 +1,4 @@
 /* @layer rnw MUST come before tailwindcss to fix CSS specificity */
 @layer rnw;
 @import "tailwindcss";
-@source "../../packages/ui/src";
+@source "../../packages/ui/dist/src";

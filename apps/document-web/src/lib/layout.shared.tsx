@@ -27,7 +27,7 @@ export function baseOptions(): BaseLayoutProps {
         url: '/docs/components/button',
       },
     ],
-    githubUrl: 'https://github.com/nicmangroup/sdb-ui',
+    githubUrl: 'https://github.com/leonsdbank/sdb-design-system',
     themeSwitch: { enabled: false },
   };
 }

@@ -1,4 +1,5 @@
 import path from "path";
+import fs from "fs";
 
 // ---------------------------------------------------------------------------
 // Minimal inline types — avoids requiring `next` as a dependency
@@ -30,9 +31,13 @@ export interface NextConfig {
 // Both in dev (src/next/) and published (dist/next/): ../.. = package root
 const packageRoot = path.resolve(__dirname, "../..");
 
-const shimPath = path.resolve(packageRoot, "src/next/react-native-shim.tsx");
+// Dev: src/index.ts exists at package root. Published (dist-only): it doesn't.
+const isDev = fs.existsSync(path.resolve(packageRoot, "src/index.ts"));
+const assetsBase = isDev ? packageRoot : path.resolve(packageRoot, "dist");
+
+const shimPath = path.resolve(assetsBase, "src/next/react-native-shim.tsx");
 const loaderPath = path.resolve(
-  packageRoot,
+  assetsBase,
   "loaders/replace-rnw-stylesheet.cjs"
 );
 

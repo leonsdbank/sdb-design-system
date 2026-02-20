@@ -65,6 +65,8 @@ Import the `@sdbank/ui` global CSS **before** Tailwind. This sets up the `@layer
 ```css title="globals.css"
 @import "@sdbank/ui/global.css";
 @import "tailwindcss";
+
+@source "../../node_modules/@sdbank/ui/dist/src";
 ```
 
 ## Configure TypeScript
@@ -83,7 +85,7 @@ Add the `@sdbank/ui` type augmentation to your `tsconfig.json` so the `className
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "node_modules/@sdbank/ui/src/types/**/*.d.ts"
+    "node_modules/@sdbank/ui/dist/src/types/**/*.d.ts"
   ]
 }
 ```
